@@ -10,3 +10,13 @@ Throwaway test repository for the CAMHUB firmware sync feature (customer firmwar
 - `v1.0` and `v1.1` differ by a few bytes so a version change can be detected.
 
 This repository can be deleted once the feature has been tested.
+
+## Release naming rule under test
+
+Only a `.hex` asset whose name ends in `release` is published to CAMHUB, for example `TEST001_release.hex`.
+Any other asset on a release is ignored.
+
+| Release | Assets | Expected in CAMHUB |
+|---|---|---|
+| v1.0, v1.1 | `TEST001.hex` | nothing published |
+| v1.2 | `TEST001.hex`, `TEST001_debug.hex`, `TEST001_release.hex` | `TEST001_release.hex` |
